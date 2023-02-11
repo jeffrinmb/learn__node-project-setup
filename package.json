@@ -1,27 +1,37 @@
 {
-  "name": "learn__node-project-setup",
-  "version": "1.0.0",
-  "description": "Setting Up a Node Project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jeffrinmb/learn__node-project-setup.git"
-  },
-  "author": "Jeffrin Mathew Benny",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jeffrinmb/learn__node-project-setup/issues"
-  },
-  "homepage": "https://github.com/jeffrinmb/learn__node-project-setup#readme",
-  "devDependencies": {
-    "eslint": "^8.34.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4"
-  }
+	"name": "learn__node-project-setup",
+	"version": "1.0.0",
+	"description": "Setting Up a Node Project",
+	"main": "index.js",
+	"scripts": {
+		"start:simple": "node index.js",
+		"start:nodemon": "nodemon index.js",
+		"build": "babel index.js -d dist",
+		"start": "npm run build && node dist/index.js",
+		"start:dev": "nodemon --exec babel-node index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jeffrinmb/learn__node-project-setup.git"
+	},
+	"author": "Jeffrin Mathew Benny",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jeffrinmb/learn__node-project-setup/issues"
+	},
+	"homepage": "https://github.com/jeffrinmb/learn__node-project-setup#readme",
+	"devDependencies": {
+		"@babel/cli": "^7.20.7",
+		"@babel/core": "^7.20.12",
+		"@babel/node": "^7.20.7",
+		"@babel/preset-env": "^7.20.2",
+		"eslint": "^8.34.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-prettier": "^4.2.1",
+		"nodemon": "^2.0.20",
+		"prettier": "^2.8.4"
+	}
 }
