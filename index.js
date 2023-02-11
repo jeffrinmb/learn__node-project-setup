@@ -2,7 +2,7 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import middleWare from './middleware/Middleware';
 import logger from './config/Logger';
-import route from './routes';
+import routes from './routes';
 
 dotenv.config();
 
@@ -11,8 +11,12 @@ const PORT = process.env.PORT || API_PORT;
 const app = express();
 middleWare(app);
 
-app.use('/v1', route);
+app.use('/v1', routes);
 
-app.listen(PORT, () => {
-	logger.info('Server Started');
+app.listen(PORT, err => {
+	if (err) {
+		logger.error(err);
+		process.exit(1);
+	}
+	logger.info(`Server Listening on Port: ${PORT}`);
 });
