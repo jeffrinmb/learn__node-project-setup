@@ -1,7 +1,16 @@
-import http from 'http';
+import express from 'express';
+import * as dotenv from 'dotenv';
 
-const server = http.createServer((req, res) => {
-	res.end('Sendeddd');
+dotenv.config();
+
+const { API_PORT } = process.env;
+const PORT = process.env.PORT || API_PORT;
+const app = express();
+app.use(express.json());
+app.get('/test', (req, res) => {
+	res.send('Hi');
 });
 
-server.listen(2000);
+app.listen(PORT, () => {
+	console.log('Server Started');
+});
