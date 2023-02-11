@@ -6,7 +6,8 @@
 	"scripts": {
 		"start:simple": "node index.js",
 		"start:nodemon": "nodemon index.js",
-		"build": "babel index.js -d dist",
+		"build-test": "babel index.js -d dist/index.js",
+		"build": "babel . --ignore node_modules,dist --out-dir dist",
 		"start": "npm run build && node dist/index.js",
 		"start:dev": "nodemon --exec babel-node index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
