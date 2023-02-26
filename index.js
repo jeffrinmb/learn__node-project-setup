@@ -13,7 +13,7 @@ const PORT = process.env.PORT || API_PORT;
 const app = express();
 middleWare(app);
 
-app.use('/v1', routes);
+app.use(routes);
 app.use(sendError);
 app.use(sendResponse);
 
@@ -23,4 +23,8 @@ app.listen(PORT, err => {
 		process.exit(1);
 	}
 	logger.info(`Server Listening on Port: ${PORT}`);
+});
+
+process.on('uncaughtException', err => {
+	logger.error(err);
 });
